@@ -1,0 +1,24 @@
+# Step 1. Create a RDD
+
+tempData = [59,57.2,53.6,55.4,51.8,53.6,55.4]
+parTempData = sc.parallelize(tempData,2)
+parTempData.collect()
+
+# Step 2. Define function to convert F into C
+
+def fahrenheitToCentigrade(temperature) :
+  centigrade = (temperature-32)*5/9
+  return centigrade
+
+fahrenheitToCentigrade(59)
+parCentigradeData = parTempData.map(fahrenheitToCentigrade)
+parCentigradeData.collect()
+
+#Step 3. Filtering temperature greater than 13o C.
+
+def tempMoreThanThirteen(temperature):
+  return temperature >=13
+
+#step 4. Apply filter
+filteredTemprature = parCentigradeData.filter(lambda x : x>=13)
+filteredTemprature.collect()
