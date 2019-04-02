@@ -1,4 +1,4 @@
-# Python-for-Big-Data
+# PySpark-for-Big-Data
 
 Project # 1: We have the temperature readings taken at 8 different intervals in a day for 5 days. As a data scientist you are given this data set and find the following: 
 
